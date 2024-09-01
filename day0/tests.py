@@ -1,3 +1,4 @@
+
 def swap(a, b):
     a = a + b
     b = a - b
@@ -13,7 +14,7 @@ def change(a, b):
     return print(a, b)
 def ab_test(a, b):
     b,a = (str(a)+" "+str(b)).split()
-    return print(a, b)
+    return print(int(a), int(b))
 if __name__ == '__main__':
     tmp(10, 20)
     swap(10, 20)
