@@ -13,7 +13,7 @@ def if_evennumber(num):
     print(not bool(num%2))
 
 def calculate_age(birth_year):
-    """18
+    """
     Без комментариев
     """
     current_year = 2024
