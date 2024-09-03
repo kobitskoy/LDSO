@@ -1,10 +1,10 @@
-def print_words_on_new_line(str):
+def print_words_on_new_line(usr_str):
     """
     Решениe задачи для общего случая, лень ставить \n
     """
-    words = str.split()
-    for word in words:
-        print(word)
+    # for word in usr_str.split():
+    #     print(word)
+    print('\n'.join(map(str,usr_str.split())))
 
 def if_evennumber(num):
     """
@@ -13,7 +13,7 @@ def if_evennumber(num):
     print(not bool(num%2))
 
 def calculate_age(birth_year):
-    """
+    """18
     Без комментариев
     """
     current_year = 2024
