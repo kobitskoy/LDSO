@@ -8,6 +8,17 @@ def sum_of_numbers(a,b):
             sum += i
     print()
     return sum
+def sum_of_numbers_optimized():
+    """
+    решение более оптимальное, но т.к. мы еще не учили range()
+    """
+    sum = 0
+    for i in range(102,201,3):
+        print(i, end=' ')
+        sum += i
+    print()
+    return sum
+
 def prime_numbers():
     """
     т.к. рассмотрен частный случай, нет особого смысла в оптимизации алгоритма
@@ -24,4 +35,5 @@ def prime_numbers():
 
 if __name__ == '__main__':
     print(sum_of_numbers(100,201))
+    print(sum_of_numbers_optimized())
     prime_numbers()
