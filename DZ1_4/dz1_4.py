@@ -1,12 +1,17 @@
 from random import randint
+# def get_middle(start,end):
+#     if start == end:
+#         return start
+#     else:
+#         sum = 0
+#         for i in range(start,end+1):
+#             sum += i
+#         return sum/(end-start+1)
 def get_middle(start,end):
     if start == end:
         return start
     else:
-        sum = 0
-        for i in range(start,end+1):
-            sum += i
-        return sum/(end-start+1)
+        return sum(range(start,end+1))/len(range(start,end+1))
 
 def input_numbers(n):
     positive = negative = zero = 0
