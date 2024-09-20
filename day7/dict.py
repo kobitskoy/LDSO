@@ -6,6 +6,7 @@
 
 # Есть товар каталога(id,title,price)
 # Есть товар корзины (id,count)
+#gerasimenkosv@bk.ru
 
 
 
