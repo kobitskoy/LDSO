@@ -22,9 +22,6 @@ users = [
         'password':'54321'
     }
 ]
-
-
-
 # Структура товара в корзине:
 # id,count
 carts = []
@@ -46,21 +43,17 @@ items = [
         'price':900
     }
 ]
-
-
 def show_items():
     print("-"*50)
     for i,item in enumerate(items,1):
         print(f"{i}) {item['title']} стоит {item['price']} (id = {item['id']})")
     print("-"*50)
-
 def get_max_id():
     max_id = 0
     for item in items:
         if item['id'] > max_id:
             max_id = item['id']
     return max_id
-
 def add_item():
     title = input("Введите название товара: ")
     price = int(input("Введите стоимость товара: "))
@@ -71,16 +64,12 @@ def add_item():
     }
     items.append(item)
     show_items()
-
-
 def edit_price_from_item(id):
     for item in items:
         if item['id'] == id:
             item['price'] = int(input(f"Введите цену для {item['title']}:\n"))
             break
     show_items()
-
-
 def del_item(id):
     for i,item in enumerate(items):
         if item['id'] == id:
@@ -89,7 +78,6 @@ def del_item(id):
            break
     else:
         print("Товар не найден")
-
 def show_cart():
     print("-" * 50)
     if carts:
@@ -101,8 +89,6 @@ def show_cart():
     else:
         print('Корзина пуста')
     print("-" * 50)
-
-
 def add_carts():
     item_id = int(input('Введите ID товара, который нужно добавить в корзину: '))
     for item in items:
@@ -113,23 +99,22 @@ def add_carts():
     print(f"Товар с ID: {item_id} не найден")
     show_cart()
 def auth_users():
-    auth = input('Введите логин: ').strip().lower()
-    if auth:
-        passwd = input('Введите пароль: ').strip()
-        for user in users:
-            if user['login'] == auth:
-                if user['password'] == passwd:
-                    print('Вы вошли как', user['login'])
-                    return 'admin'
-                else:
-                    print('Неверный пароль')
-                    auth_users()
-            else:
-                print('Пользователь не найден')
-                auth_users()
-    else:
-        print('Вы вошли как покупатель')
-        return 'buyer'
+    while 1:
+        auth = input('Введите логин или нажмите Enter для покупок: ').strip().lower()
+        if auth:
+            for user in users:
+                if user['login'] == auth:
+                    passwd = input('Введите пароль: ').strip().lower()
+                    if user['password'] == passwd:
+                        print('Вы вошли как', user['login'])
+                        return 'admin'
+                    else:
+                        print('Неверный пароль')
+                        return
+            print('Пользователь не найден')
+        else:
+            print('Вы вошли как покупатель')
+            return 'buyer'
 
 admin_menu = """
 Выберите пункт меню:
@@ -178,23 +163,23 @@ def user_match():
                 show_cart()
             case "4":
                 break
-
-
 def main_store(user):
     match user:
         case 'admin':
             admin_match()
         case 'buyer':
             user_match()
-
-
-
 if __name__ == '__main__':
-    main_store(auth_users())
+    while 1:
+        is_auth = auth_users()
+        if is_auth == 'admin' or is_auth == 'buyer':
+            main_store(is_auth)
+            break
 
 
 
-    # 
+
+    #
     # if choise == "1":
     #     show_items()
     # elif choise == "2":
