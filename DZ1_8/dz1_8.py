@@ -28,7 +28,7 @@ if __name__ == '__main__':
     bag = []
     show_items(items)
 
-    while 1:
+    while total_weight < max_weight:
         if edit_bag == 'Нет':
             print('Вещи в рюкзаке:')
             show_items(bag)
