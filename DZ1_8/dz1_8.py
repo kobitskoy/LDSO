@@ -29,15 +29,15 @@ if __name__ == '__main__':
     show_items(items)
 
     while total_weight < max_weight:
+        """
+        считаю, что если свободного места в рюкзаке не осталось, то он автоматически сохрнаняется
+        т.к. это не оговорено в ТЗ
+        """
         if edit_bag == 'Нет':
             print('Вещи в рюкзаке:')
             show_items(bag)
             break
         add_item = input('Введите название вещи для добавления: ').capitalize()
-        # if add_item == 'Готово':
-        #     print('Вещи в рюкзаке:')
-        #     show_items(bag)
-        #     break
         if add_item not in items_names:
             print(f'{add_item} нет в списке вещей')
             continue
