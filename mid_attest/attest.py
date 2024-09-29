@@ -1,5 +1,3 @@
-import cmath
-
 def solve_quadratic(a, b, c):
     d = b*b - 4*a*c
     if d < 0:
