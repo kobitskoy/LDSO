@@ -67,7 +67,7 @@ def add_item():
 def edit_price_from_item(id):
     for item in items:
         if item['id'] == id:
-            item['price'] = int(input(f"Введите цену для {item['title']}:\n"))
+            item['price'] = int(input(f"Введите цену для {item['title']}: \n"))
             break
     show_items()
 def del_item(id):
