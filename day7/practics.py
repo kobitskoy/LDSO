@@ -6,22 +6,56 @@ from random import random, randint
 def split_users_fio(fio):
     return f'Фамилия: {fio.split()[0]}\nИмя: {fio.split()[1]}\nОтчество: {fio.split()[2]}'
 #2
-def logistic(korob):
-    gruzpvik = 12*27
-    konteyner = 27
-    gruzpvik_need = math.ceil(korob / gruzpvik)
-    konteyner_need = math.ceil(korob / konteyner )
-    print(f'Для перевозки {korob} потребуется грузовиков: {gruzpvik_need}, контейнеров: {konteyner_need}')
-    for i in range(1, gruzpvik_need+1):
-        print(f'Грузовик {i}')
-        for j in range(1, konteyner_need+1):
-            print(f'    Контейнер {j}')
-            for k in range(1, korob + 1):
-                if k % 27 == 0:
-                    print(f'        Ящик {k}')
-                    korob -= 27
-                    break
-                print(f'        Ящик {k}')
+
+def logistic(box):
+    truck = 0
+    container = 0
+    konteyner_need = math.ceil(box / 28)
+    gruzpvik_need = math.ceil(konteyner_need / 12)
+    print(f'Для перевозки {box} потребуется грузовиков: {gruzpvik_need}, контейнеров: {konteyner_need}')
+    for i in range(1, box + 1):
+        if container % 12 == 0:
+            truck += 1
+            print(f'Грузовик: {truck}')
+        if i % 28 == 0:
+            container += 1
+            print(f'    Контейнер: {container}')
+        print(f'        Ящик: {i}')
+
+    # box = 0
+    # con = 0
+    # truck = 0
+    # gruzpvik = 12*27
+    # konteyner = 27
+    # gruzpvik_need = math.ceil(korob / gruzpvik)
+    # konteyner_need = math.ceil(korob / konteyner )
+    # print(f'Для перевозки {korob} потребуется грузовиков: {gruzpvik_need}, контейнеров: {konteyner_need}')
+    # for i in range(1, gruzpvik_need+1):
+    #     if box == korob:
+    #         print()
+    #         break
+    #
+    #     truck += 1
+    #     print()
+    #     print(f'Грузовик {i}')
+    #
+    #
+    #     for j in range(1, 13):
+    #         if box == korob:
+    #             print()
+    #             break
+    #
+    #         con += 1
+    #         print()
+    #         print(f'    Контейнер {con}')
+    #
+    #         for k in range(1, 29):
+    #             if box == korob:
+    #                 break
+    #             box += 1
+    #             print(f'        Ящик {box}', end=' ')
+
+
 
 #3
 def numbers ():
@@ -60,8 +94,8 @@ def tv_program():
     print(list_tv_program)
 if __name__ == '__main__':
 
-   print(split_users_fio(input('Введите ФИО: ').title()))
+  # print(split_users_fio(input('Введите ФИО: ').title()))
    logistic(int(input('Введите кол-во ящиков: ')))
-   numbers()
-   print(guests())
-   tv_program()
+   #numbers()
+   #print(guests())
+   #tv_program()
