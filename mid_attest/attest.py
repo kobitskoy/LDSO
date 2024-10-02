@@ -11,6 +11,8 @@ def solve_quadratic(a, b, c):
         try:
             x1 = (-b - d**0.5) / (2*a)
             x2 = (-b + d**0.5) / (2*a)
+            # print(f'{a}*{x1}**2+{b}*{x1}+{c} = {a*x1**2+b*x1+c}')
+            # print(f'{a}*{x1**2}+{b*x1}+{c} = {a * x1 ** 2 + b * x1 + c}')
             return f'x1 = {round(x1,5)}, x2 = {round(x2,5)}'
         except ZeroDivisionError:
             return 'Это не квадратное уравнение, т.к. а = 0'
